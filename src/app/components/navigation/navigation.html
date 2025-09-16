@@ -1,1 +1,54 @@
-<p>navigation works!</p>
+<nav class="nav" aria-label="Navegación principal">
+  <ul class="nav__list" role="menubar">
+    <li class="nav__item" role="none">
+      <a 
+        routerLink="/about" 
+        routerLinkActive="nav__link--active"
+        class="nav__link" 
+        role="menuitem"
+        [attr.aria-current]="isActive('/about') ? 'page' : null">
+        Sobre mí
+      </a>
+    </li>
+    <li class="nav__item" role="none">
+      <a 
+        routerLink="/education" 
+        routerLinkActive="nav__link--active"
+        class="nav__link" 
+        role="menuitem"
+        [attr.aria-current]="isActive('/education') ? 'page' : null">
+        Formación
+      </a>
+    </li>
+    <li class="nav__item" role="none">
+      <a 
+        routerLink="/skills" 
+        routerLinkActive="nav__link--active"
+        class="nav__link" 
+        role="menuitem"
+        [attr.aria-current]="isActive('/skills') ? 'page' : null">
+        Habilidades
+      </a>
+    </li>
+    <li class="nav__item" role="none">
+      <a 
+        routerLink="/projects" 
+        routerLinkActive="nav__link--active"
+        class="nav__link" 
+        role="menuitem"
+        [attr.aria-current]="isActive('/projects') ? 'page' : null">
+        Proyectos
+      </a>
+    </li>
+    <li class="nav__item" role="none">
+      <a 
+        routerLink="/hobbies" 
+        routerLinkActive="nav__link--active"
+        class="nav__link" 
+        role="menuitem"
+        [attr.aria-current]="isActive('/hobbies') ? 'page' : null">
+        Hobbies
+      </a>
+    </li>
+  </ul>
+</nav>
