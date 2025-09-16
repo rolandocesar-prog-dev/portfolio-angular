@@ -1,0 +1,6 @@
+@import './styles/mixins';
+
+.main {
+    margin-top: 70px; // Espacio para el header fijo
+    min-height: calc(100vh - 140px);
+}

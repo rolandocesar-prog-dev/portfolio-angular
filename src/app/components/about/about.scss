@@ -1,0 +1,15 @@
+@import '../../styles/mixins';
+
+.about {
+    background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-color) 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-xl) var(--spacing-sm);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
