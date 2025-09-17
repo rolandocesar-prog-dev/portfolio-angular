@@ -8,7 +8,7 @@ export class Portfolio {
   private aboutDataSignal = signal<AboutInfo>({
     name: 'Rolando César Vásquez Tavera',
     title: 'Técnico Superior en Sistemas Informáticos',
-    subtitle: 'Desarrollador',
+    subtitle: 'Desarrollador Web',
     description: 'Profesional especializado en desarrollo web con experiencia en tecnologías modernas. Enfocado en crear soluciones eficientes, accesibles y escalables.',
     contact: {
       email: 'rolandovasquez.dev@gmail.com',
