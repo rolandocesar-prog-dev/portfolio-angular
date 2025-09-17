@@ -8,7 +8,7 @@ export const EDUCATION_DATA: EducationData = {
       id: '1',
       title: 'Ingeniería en Sistemas',
       institution: 'Universidad Adventista de Bolivia',
-      startDate: '2021',
+      startDate: '2025',
       status: 'in-progress',
       type: 'degree',
       description: 'Carrera de Ingeniería en Sistemas con enfoque en desarrollo de software'

@@ -9,13 +9,12 @@ export class Portfolio {
     name: 'Rolando César Vásquez Tavera',
     title: 'Técnico Superior en Sistemas Informáticos',
     subtitle: 'Desarrollador Web',
-    description: 'Profesional especializado en desarrollo web con experiencia en tecnologías modernas. Enfocado en crear soluciones eficientes, accesibles y escalables.',
+    description: 'Profesional especializado en desarrollo de aplicaciones con experiencia en tecnologías modernas. Enfocado en crear soluciones eficientes, accesibles y escalables.',
     contact: {
-      email: 'rolandovasquez.dev@gmail.com',
-      phone: '+591 123 456 789',
+      email: 'rolando.sha256@gmail.com',
+      phone: '+591 78249575',
       location: 'Tarija, Bolivia',
-      linkedin: 'https://linkedin.com/in/rolando-vasquez',
-      github: 'https://github.com/rolando-vasquez'
+      github: 'https://github.com/rolandocesar-prog-dev/portfolio-angular'
     },
     photoUrl: 'assets/images/perfil-web.webp'
   });
