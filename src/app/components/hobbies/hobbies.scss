@@ -4,6 +4,7 @@
     display: block;
     padding: var(--spacing-xl) var(--spacing-sm);
     min-height: 100vh;
+    background-color: var(--bg-color);
 }
 
 .container {
@@ -31,4 +32,200 @@
     height: 3px;
     background-color: var(--secondary-color);
     border-radius: 2px;
+}
+
+.hobbies__content {
+    display: grid;
+    gap: var(--spacing-xl);
+}
+
+// ===================
+// HOBBIES GRID
+// ===================
+.hobbies__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.hobby__card {
+    @include card-style;
+    text-align: center;
+    border: 2px solid var(--border-color);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.hobby__card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+}
+
+.hobby__card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-color: var(--secondary-color);
+}
+
+.hobby__card:focus-within {
+    outline: var(--focus-outline);
+    outline-offset: 2px;
+}
+
+.hobby__icon {
+    font-size: 3.5rem;
+    margin-bottom: var(--spacing-sm);
+    display: block;
+    line-height: 1;
+}
+
+.hobby__title {
+    font-size: var(--font-size-base);
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.hobby__description {
+    font-size: var(--font-size-small);
+    color: var(--text-light);
+    line-height: 1.6;
+    margin: 0;
+}
+
+// ===================
+// QUOTE SECTION
+// ===================
+.hobbies__quote {
+    background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-color) 100%);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-xl);
+    text-align: center;
+    border: 2px solid var(--border-color);
+    position: relative;
+    margin-top: var(--spacing-lg);
+}
+
+.quote {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.quote__text {
+    font-size: clamp(1.125rem, 3vw, 1.5rem);
+    font-weight: 600;
+    color: var(--primary-color);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+    position: relative;
+    font-style: italic;
+}
+
+.quote__text::before,
+.quote__text::after {
+    font-size: 3rem;
+    color: var(--secondary-color);
+    position: absolute;
+    font-family: serif;
+    font-weight: 700;
+}
+
+.quote__text::before {
+    content: '"';
+    top: -20px;
+    left: -30px;
+}
+
+.quote__text::after {
+    content: '"';
+    bottom: -30px;
+    right: -30px;
+}
+
+.quote__author {
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: var(--secondary-color);
+    font-style: normal;
+}
+
+// ===================
+// RESPONSIVE
+// ===================
+@include tablet {
+    .hobbies__grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--spacing-md);
+    }
+    
+    .hobbies__quote {
+        padding: var(--spacing-lg);
+    }
+    
+    .quote__text::before,
+    .quote__text::after {
+        font-size: 2.5rem;
+    }
+    
+    .quote__text::before {
+        top: -15px;
+        left: -20px;
+    }
+    
+    .quote__text::after {
+        bottom: -25px;
+        right: -20px;
+    }
+}
+
+@include mobile {
+    :host {
+        padding: var(--spacing-lg) var(--spacing-sm);
+    }
+    
+    .hobbies__grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .hobby__card {
+        padding: var(--spacing-md);
+    }
+    
+    .hobby__icon {
+        font-size: 3rem;
+    }
+    
+    .hobby__title {
+        font-size: var(--font-size-base);
+    }
+    
+    .hobbies__quote {
+        padding: var(--spacing-lg) var(--spacing-md);
+        margin-top: var(--spacing-lg);
+    }
+    
+    .quote__text {
+        font-size: var(--font-size-base);
+    }
+    
+    .quote__text::before,
+    .quote__text::after {
+        font-size: 2rem;
+    }
+    
+    .quote__text::before {
+        left: -10px;
+    }
+    
+    .quote__text::after {
+        right: -10px;
+        bottom: -20px;
+    }
 }

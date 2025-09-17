@@ -1,6 +1,32 @@
 <section>
   <div class="container">
-    <h2 class="section__title">[Título de Sección]</h2>
-    <p>[Nombre del componente] works!</p>
+    <h2 class="section__title">Hobbies</h2>
+    
+    <div class="hobbies__content">
+      <!-- Grid de Hobbies -->
+      <div class="hobbies__grid">
+        @for (hobby of hobbiesData().hobbies; track hobby.id) {
+          <div class="card hobby__card">
+            <div class="hobby__icon" 
+                 [attr.aria-label]="hobby.title" 
+                 role="img">
+              {{ hobby.icon }}
+            </div>
+            <h3 class="hobby__title">{{ hobby.title }}</h3>
+            <p class="hobby__description">{{ hobby.description }}</p>
+          </div>
+        }
+      </div>
+
+      <!-- Cita Inspiracional -->
+      @if (hobbiesData().quote) {
+        <div class="hobbies__quote">
+          <blockquote class="quote">
+            <p class="quote__text">{{ hobbiesData().quote?.text }}</p>
+            <cite class="quote__author">— {{ hobbiesData().quote?.author }}</cite>
+          </blockquote>
+        </div>
+      }
+    </div>
   </div>
 </section>

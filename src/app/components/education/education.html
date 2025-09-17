@@ -1,6 +1,59 @@
 <section>
   <div class="container">
-    <h2 class="section__title">[Título de Sección]</h2>
-    <p>[Nombre del componente] works!</p>
+    <h2 class="section__title">Formación</h2>
+    
+    <div class="education__content">
+      <!-- Timeline de Educación -->
+      <div class="education__timeline">
+        <h3 class="subtitle">Historial Académico</h3>
+        <div class="timeline">
+          @for (item of educationData().timeline; track item.id) {
+            <div class="timeline__item">
+              <div class="timeline__marker"></div>
+              <div class="timeline__content">
+                <div class="timeline__header">
+                  <h4 class="timeline__title">{{ item.title }}</h4>
+                  <div class="timeline__status" 
+                       [class]="'status status--' + item.status">
+                    {{ item.status === 'completed' ? 'Completado' : 'En curso' }}
+                  </div>
+                </div>
+                <p class="timeline__institution">{{ item.institution }}</p>
+                <div class="timeline__period">
+                  {{ item.startDate }}
+                  @if (item.endDate) {
+                    - {{ item.endDate }}
+                  } @else {
+                    - Presente
+                  }
+                </div>
+                @if (item.description) {
+                  <p class="timeline__description">{{ item.description }}</p>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- Logros y Reconocimientos -->
+      <div class="education__achievements">
+        <h3 class="subtitle">Reconocimientos</h3>
+        <div class="achievements__grid">
+          @for (achievement of educationData().achievements; track achievement.id) {
+            <div class="card card--centered achievement__item">
+              <div class="achievement__icon" 
+                   [attr.aria-label]="achievement.title" 
+                   role="img">
+                {{ achievement.icon }}
+              </div>
+              <h4 class="achievement__title">{{ achievement.title }}</h4>
+              <p class="achievement__description">{{ achievement.description }}</p>
+              <span class="achievement__year">{{ achievement.year }}</span>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
   </div>
 </section>

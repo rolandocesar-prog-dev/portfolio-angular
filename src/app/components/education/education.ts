@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { EducationService } from '../../services/education';
 
 @Component({
   selector: 'app-education',
@@ -7,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './education.scss'
 })
 export class Education {
-
+  private educationService = inject(EducationService);
+  
+  educationData = this.educationService.educationData;
 }

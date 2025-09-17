@@ -1,6 +1,110 @@
 <section>
   <div class="container">
-    <h2 class="section__title">[Título de Sección]</h2>
-    <p>[Nombre del componente] works!</p>
+    <h2 class="section__title">Proyectos</h2>
+    
+    <div class="projects__content">
+      <!-- Proyectos Actuales -->
+      <div class="projects__current">
+        <h3 class="subtitle">Proyectos Actuales</h3>
+        <div class="projects__grid">
+          @for (project of projectsData().current; track project.id) {
+            <article class="card project__card">
+              <div class="project__header">
+                <h4 class="project__title">{{ project.title }}</h4>
+                <div class="status" 
+                     [class]="'status--' + project.status">
+                  {{ project.status === 'active' ? 'Activo' : 'Completado' }}
+                </div>
+              </div>
+              <p class="project__description">{{ project.description }}</p>
+              
+              <!-- Tecnologías -->
+              @if (project.technologies.length > 0) {
+                <div class="project__tech">
+                  @for (tech of project.technologies; track tech.name) {
+                    <span class="tech__tag" [style.background-color]="tech.color">
+                      {{ tech.name }}
+                    </span>
+                  }
+                </div>
+              }
+              
+              <!-- Enlaces -->
+              @if (project.links.length > 0) {
+                <div class="project__links">
+                  @for (link of project.links; track link.url) {
+                    <a [href]="link.url" 
+                       class="btn btn--secondary"
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                      {{ link.label }}
+                    </a>
+                  }
+                </div>
+              }
+              
+              <!-- Período -->
+              <div class="project__period">
+                <small>
+                  {{ project.startDate }}
+                  @if (project.endDate) {
+                    - {{ project.endDate }}
+                  } @else {
+                    - Presente
+                  }
+                </small>
+              </div>
+            </article>
+          }
+        </div>
+      </div>
+
+      <!-- Proyectos Completados -->
+      @if (projectsData().completed.length > 0) {
+        <div class="projects__completed">
+          <h3 class="subtitle">Proyectos Completados</h3>
+          <div class="projects__grid">
+            @for (project of projectsData().completed; track project.id) {
+              <article class="card project__card">
+                <div class="project__header">
+                  <h4 class="project__title">{{ project.title }}</h4>
+                  <div class="status status--completed">
+                    Completado
+                  </div>
+                </div>
+                <p class="project__description">{{ project.description }}</p>
+                
+                @if (project.technologies.length > 0) {
+                  <div class="project__tech">
+                    @for (tech of project.technologies; track tech.name) {
+                      <span class="tech__tag" [style.background-color]="tech.color">
+                        {{ tech.name }}
+                      </span>
+                    }
+                  </div>
+                }
+                
+                @if (project.links.length > 0) {
+                  <div class="project__links">
+                    @for (link of project.links; track link.url) {
+                      <a [href]="link.url" 
+                         class="btn btn--secondary"
+                         target="_blank" 
+                         rel="noopener noreferrer">
+                        {{ link.label }}
+                      </a>
+                    }
+                  </div>
+                }
+                
+                <div class="project__period">
+                  <small>{{ project.startDate }} - {{ project.endDate }}</small>
+                </div>
+              </article>
+            }
+          </div>
+        </div>
+      }
+    </div>
   </div>
 </section>

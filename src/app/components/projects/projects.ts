@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ProjectsService } from '../../services/projects';
 
 @Component({
   selector: 'app-projects',
@@ -7,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './projects.scss'
 })
 export class Projects {
-
+  private projectsService = inject(ProjectsService);
+  
+  projectsData = this.projectsService.projectsData;
 }
