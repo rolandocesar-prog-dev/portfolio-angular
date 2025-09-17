@@ -1,6 +1,56 @@
 <section>
   <div class="container">
-    <h2 class="section__title">[Título de Sección]</h2>
-    <p>[Nombre del componente] works!</p>
+    <h2 class="section__title">Habilidades</h2>
+    
+    <div class="skills__content">
+      <!-- Habilidades Técnicas -->
+      <div class="skills__technical">
+        <h3 class="subtitle">Habilidades Técnicas</h3>
+        
+        @for (category of skillsData().technical; track category.name) {
+          <div class="skills__category">
+            <h4 class="category__title">{{ category.name }}</h4>
+            <div class="skills__grid">
+              @for (skill of category.skills; track skill.id) {
+                <div class="skill__item">
+                  <div class="skill__header">
+                    <div class="skill__name">{{ skill.name }}</div>
+                    <div class="skill__percentage-value">{{ skill.level }}%</div>
+                  </div>
+                  <div class="skill__bar-container">
+                    <div 
+                      class="skill__level"
+                      [style.width.%]="skill.level"
+                      [style.background]="skill.color"
+                      role="progressbar"
+                      [attr.aria-valuenow]="skill.level"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      [attr.aria-label]="'Nivel de ' + skill.name + ': ' + skill.level + '%'">
+                    </div>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+        }
+      </div>
+      
+      <!-- Habilidades Blandas -->
+      <div class="skills__soft">
+        <h3 class="subtitle">Habilidades Blandas</h3>
+        <div class="soft-skills__grid">
+          @for (softSkill of skillsData().soft; track softSkill.id) {
+            <div class="card card--centered soft-skill__item">
+              <div class="soft-skill__icon" [attr.aria-label]="softSkill.title" role="img">
+                {{ softSkill.icon }}
+              </div>
+              <h4 class="soft-skill__title">{{ softSkill.title }}</h4>
+              <p class="soft-skill__description">{{ softSkill.description }}</p>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
   </div>
 </section>

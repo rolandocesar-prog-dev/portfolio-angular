@@ -1,6 +1,51 @@
 <section class="about">
   <div class="container">
-    <h1>Sobre mí</h1>
-    <p>Contenido sobre mí próximamente...</p>
+    <div class="about__content">
+      <div class="about__image">
+        <img 
+          [src]="aboutData().photoUrl" 
+          [alt]="'Foto de perfil de ' + aboutData().name"
+          class="about__photo"
+          loading="lazy">
+      </div>
+      <div class="about__info">
+        <h1 class="about__title">{{ aboutData().name }}</h1>
+        <h2 class="about__subtitle">{{ aboutData().title }}</h2>
+        <p class="about__description">{{ aboutData().description }}</p>
+        
+        <div class="about__contact">
+          <div class="contact__item">
+            <strong>Email:</strong>
+            <a [href]="'mailto:' + aboutData().contact.email">
+              {{ aboutData().contact.email }}
+            </a>
+          </div>
+          <div class="contact__item">
+            <strong>Teléfono:</strong>
+            <span>{{ aboutData().contact.phone }}</span>
+          </div>
+          <div class="contact__item">
+            <strong>Ubicación:</strong>
+            <span>{{ aboutData().contact.location }}</span>
+          </div>
+          @if (aboutData().contact.linkedin) {
+            <div class="contact__item">
+              <strong>LinkedIn:</strong>
+              <a [href]="aboutData().contact.linkedin" target="_blank" rel="noopener noreferrer">
+                Ver perfil
+              </a>
+            </div>
+          }
+          @if (aboutData().contact.github) {
+            <div class="contact__item">
+              <strong>GitHub:</strong>
+              <a [href]="aboutData().contact.github" target="_blank" rel="noopener noreferrer">
+                Ver repositorios
+              </a>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
   </div>
 </section>
